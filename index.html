@@ -3,63 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toura Business Prod | Partenaire Digital Local</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Toura Business Prod - Votre Partenaire Digital Local</title>
     <style>
-        /* Styles rapides pour que ce soit présentable immédiatement */
-        body { font-family: sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
-        header { background: #007bff; color: white; padding: 2rem; text-align: center; }
-        section { padding: 2rem; max-width: 800px; margin: auto; }
-        .services { display: flex; gap: 20px; flex-wrap: wrap; }
-        .card { border: 1px solid #ddd; padding: 1rem; flex: 1; min-width: 250px; border-radius: 8px; }
-        .cta { background: #28a745; color: white; padding: 1rem 2rem; text-decoration: none; display: inline-block; border-radius: 5px; margin-top: 20px; }
+        /* --- CSS Global --- */
+        :root {
+            --primary-color: #007bff; /* Bleu moderne pour les actions */
+            --secondary-color: #28a745; /* Vert pour le succès/validation */
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Typographie & Titres --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px; margin-bottom: 30px;}
+        h3 { font-size: 1.5rem; color: var(--primary-color); }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        /* --- Boutons (CTA) --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* --- Section Héro (Accueil) --- */
+        #hero {
+            background-color: var(--bg-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #hero .rocket-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- Section Services --- */
+        #services {
+            padding: 80px 0;
+        }
+
+        #services .section-title {
+            text-align: center;
+            display: block;
+            margin-bottom: 60px;
+        }
+
+        #services .wrench-icon {
+            margin-right: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-bottom: 4px solid transparent;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-bottom-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* --- Section Contact --- */
+        #contact {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #contact h2 {
+            border-bottom: none;
+        }
+
+        /* --- Footer (Pied de page) --- */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-links {
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            margin: 0 10px;
+            opacity: 0.8;
+        }
+
+        footer .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            #hero { padding: 60px 0; }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Toura Business Prod 🚀</h1>
-        <p>Votre partenaire digital pour booster votre commerce local</p>
-    </header>
-
-    <section>
-        <h2>Bienvenue</h2>
-        <p>Vous êtes un commerçant ou une petite entreprise ? Je vous aide à devenir visible sur internet et à attirer plus de clients grâce à des solutions simples et efficaces.</p>
-        <a href="https://wa.me/242061291971?text=Bonjour%20Toura%20Business,%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services" target="_blank" style="text-decoration: none;">
-    <button class="cta" style="cursor: pointer; background-color: #25D366; color: white; border: none; padding: 15px 25px; border-radius: 8px; font-weight: bold;">
-        Discutons de votre projet sur WhatsApp
-    </button>
-        </a>
-        
-
-    <section style="background-color: #f9f9f9;">
-    <h2>🛠️ Mes 3 Services Clés</h2>
-    <div class="services" style="display: flex; gap: 20px; flex-wrap: wrap;">
-        
-        <div class="card" style="flex: 1 1 300px; padding: 20px; text-align: center; border-radius: 8px;">
-            <div style="font-size: 50px;">🖥️</div>
-            <h3>Création de Site</h3>
-            <p>Un site vitrine moderne et personnalisé pour présenter votre activité en ligne.</p>
+    <section id="hero">
+        <div class="container">
+            <span class="rocket-icon">🚀</span>
+            <h1>Toura Business Prod</h1>
+            <p>Votre partenaire digital pour booster votre commerce local.</p>
+            <p>Vous êtes un commerçant ou une petite entreprise ? Je vous aide à devenir visible sur internet et à attirer plus de clients grâce à des solutions simples et efficaces.</p>
+            <a href="#contact" class="btn">Demander mon devis gratuit</a>
         </div>
-
-        <div class="card" style="flex: 1 1 300px; padding: 20px; text-align: center; border-radius: 8px;">
-            <div style="font-size: 50px;">📍</div>
-            <h3>Visibilité Locale</h3>
-            <p>Optimisation de votre fiche Google Maps pour attirer les clients près de chez vous.</p>
-        </div>
-
-        <div class="card" style="flex: 1 1 300px; padding: 20px; text-align: center; border-radius: 8px;">
-            <div style="font-size: 50px;">📱</div>
-            <h3>Réseaux Sociaux</h3>
-            <p>Stratégies pour engager votre communauté sur Facebook, Instagram et WhatsApp.</p>
-        </div>
-
-    </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; background: #f4f4f4;">
-        <p>&copy; 2026 Toura Business Prod - Tous droits réservés.</p>
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="wrench-icon">🛠️</span>Mes 3 Services Clés</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>1. Design Professionnel</h3>
+                    <p>Je crée votre identité visuelle (logo, couleurs, visuels réseaux sociaux).</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">✍️</span>
+                    <h3>2. Rédaction d'Impact</h3>
+                    <p>Je rédige vos textes de présentation pour convaincre vos clients.</p>
+                </div>
+
+                <div class="service-card">
+                    <span class="service-icon">🌐</span>
+                    <h3>3. Création de Site Web</h3>
+                    <p>Conception de sites vitrines modernes et adaptés aux mobiles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>📞 Discutons de votre projet !</h2>
+            <p>Prêt à faire passer votre entreprise au niveau supérieur ? Contactez-moi dès aujourd'hui pour une analyse gratuite de vos besoins.</p>
+            <a href="mailto:votre.email@exemple.com?subject=Demande de devis Toura Business Prod" class="btn">Envoyer un Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Toura Business Prod. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
     </footer>
 
 </body>
-  </html>
+</html>
